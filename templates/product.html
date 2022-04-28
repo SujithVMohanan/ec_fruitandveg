@@ -9,15 +9,15 @@
 {% endblock %}
 
 {% block content %}
-<div class="row my_prod_roe_class">
+<div class="row my_prod_roe_class" >
   <div class="my_title">
     <div class="head" style="min-width:18rem;">
     <p><a href="{% url 'ecapp:allProdCat' %}">Home</a> | <a href="{{product.category_model.gey_url}}">{{product.category_model}}</a>|{{product.name}}</p>
   </div>
 </div>
 </div><br>
-<div class="container">
-  <div class="row">
+<div class="container" style="margin-bottom:110px;">
+  <div class="row" >
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
       <img src="{{product.image.url}}" alt="{{product.name}}">
     </div>

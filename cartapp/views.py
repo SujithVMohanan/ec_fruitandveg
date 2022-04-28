@@ -41,7 +41,7 @@ def cart_details(request, total=0, counter=0, cart_items=None):
     print("cart details")
     try:
         cart = Cart.objects.all().filter(cart_id=_cart_id(request))
-        cart_items= CartItems.objects.all()
+        cart_items = CartItems.objects.all()
         print(cart)
 
         for cart_item in cart_items:
@@ -57,12 +57,16 @@ def cart_remove(request, product_id):
     product = get_object_or_404(Products, id=product_id)
 
     cart_item = CartItems.objects.get(product=product, cart=cart)
-    if cart_item.quantity > 1:
-        cart_item.quantity -= 1
-        cart_item.save()
-    else:
+    try:
+        if cart_item.quantity > 1:
+            cart_item.quantity -= 1
+            cart_item.save()
+        else:
+            cart_item.delete()
+    except:
         cart_item.delete()
     return redirect('cartapp:cart_details')
+
 
 def full_remove(request, product_id):
     cart = Cart.objects.get(cart_id=_cart_id(request))
@@ -71,4 +75,3 @@ def full_remove(request, product_id):
     cart_item = CartItems.objects.get(product=product, cart=cart)
     cart_item.delete()
     return redirect('cartapp:cart_details')
-

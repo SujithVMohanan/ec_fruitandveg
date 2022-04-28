@@ -11,7 +11,7 @@
 {% block content %}
 {% if not cart_items %}
 <div>
-  <div class="text-center">
+  <div class="text-center" >
     <br>
     <h1 class="text-center my_title">
       Your Shopping cart is empty
@@ -31,7 +31,7 @@
   </div>
 </div>
 
-<div class="row mx-auto">
+<div class="row mx-auto"   <div class="text-center" style="margin-bottom:205px;">
   <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
     <table class="table my_custom_table">
       <thead class="my_custom_thead">
@@ -101,6 +101,7 @@
       </table>
     <div class="ma-auto">
       <a href="{% url 'ecapp:allProdCat' %}" class="btn btn-secondary btn-block my_custom_button">Continue Shopping</a>
+      &nbsp;<a href="{% url 'ecapp:allProdCat' %}" class="btn btn-success btn-block my_custom_button">Payment</a>
     </div>
   </div>
 </div>
